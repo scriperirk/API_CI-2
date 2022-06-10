@@ -11,14 +11,15 @@ class MobileBankApiTest {
         // Given - When - Then
         // Предусловия
         given()
-                .baseUri("http://localhost:9999/api/v1")
+                .baseUri("https://postman-echo.com")
+                .body("some data") // отправляемые данные (заголовки и query можно выставлять аналогично)
                 // Выполняемые действия
                 .when()
-                .get("/demo/accounts")
+                .post("/post")
                 // Проверки
                 .then()
                 .statusCode(200)
-                .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
+                .body(/* --> ваша проверка здесь <-- */)
         ;
     }
 }
